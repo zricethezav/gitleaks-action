@@ -9,7 +9,10 @@ jobs:
       - uses: actions/checkout@v1
       - name: gitleaks-action with defaults
         uses: zricethezav/gitleaks-action@master
+        with:
+          commit-before: ${{ github.event.before }}
       - name: gitleaks-action with config
         uses: zricethezav/gitleaks-action@master
         with:
           config-path: .gitleaks.yml
+          commit-before: ${{ github.event.before }}
